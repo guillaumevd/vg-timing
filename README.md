@@ -33,4 +33,4 @@ The hardware design, including PCB layout files, schematics, and bill of materia
 
 ## Copyright
 
-Copyright © [Year] Guillaume Vandriessche. All rights reserved.
+Copyright © 2023 Guillaume Vandriessche. All rights reserved.
