@@ -26,6 +26,16 @@ The i.MX RT1170 series is a family of Arm Cortex-M7 and Cortex-M4 based crossove
 - RAM: Up to 1 MB
 - Package: LFBGA196
 
+### Epson FA-238 Crystal Oscillator
+
+The Epson FA-238 is a high-precision crystal oscillator used to provide a stable clock signal for the microcontroller.
+
+- Manufacturer: Epson
+- Part Number: FA-238
+- Frequency: 24 MHz (Customizable)
+- Package: SMD
+- Operating Temperature: -40°C to +85°C
+
 ## RFID System
 
 ### Texas Instruments CC2500 Low-Cost Low-Power 2.4 GHz RF Transceiver
