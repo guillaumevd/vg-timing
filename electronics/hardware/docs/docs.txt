@@ -1,0 +1,159 @@
+Table of Contents
+
+1. Introduction
+2. Microcontroller
+	2.1 Teensy 4.1 Specifications
+	2.2 Programming Environment and Tools
+3. RFID Transceiver
+	3.1 Texas Instruments CC2500 Specifications
+	3.2 Programming and Configuration
+4. Antenna
+	4.1 Antenna Specifications
+	4.2 Connection to PCB
+5. Power Amplifier
+	5.1 Power Amplifier Specifications
+	5.2 Connection and Layout Considerations
+6. Low Noise Amplifier
+	6.1 Low Noise Amplifier Specifications
+	6.2 Connection and Layout Considerations
+7. Power Supply
+	7.1 Input Voltage and Connector
+	7.2 Voltage Regulator
+8. USB Interface
+	8.1 USB Connector and Specifications
+	8.2 Firmware Updates and Communication
+9. Programming Headers
+	9.1 Header Pin Specifications
+	9.2 In-Circuit Programming and Debugging
+10. PCB Layout and Design Considerations
+	10.1 Component Placement
+	10.2 Signal Routing and Trace Widths
+	10.3 Ground Planes and Power Distribution
+	10.4 Antenna Impedance Matching and RF Considerations
+11. Bill of Materials (BOM)
+	11.1 Components List
+	11.2 Part Numbers and Quantities
+12. Schematic
+	12.1 Circuit Diagram
+	12.2 Connections Between Components
+13. Gerber Files
+	13.1 File Types and Descriptions
+	13.2 PCB Fabrication Requirements
+
+1. Introduction
+	This document provides an overview and detailed information about the components, connections, and requirements for a lap timing system RFID reader. The system uses a microcontroller, an RFID transceiver, antennas, amplifiers, and other components to create a functional and effective design. This document will serve as a guide for designing the PCB and selecting the appropriate components.
+
+2. Microcontroller
+	2.1 Teensy 4.1 Specifications
+
+	Processor: NXP iMXRT1062 ARM Cortex-M7 at 600 MHz
+	Memory: 1 MB RAM, 2 MB flash
+	Pins: 40 digital pins, 14 analog pins
+	Communication: USB, UART, SPI, I2C, CAN
+	Input Voltage: 3.6V to 5.5V
+	Programming: Arduino IDE, Zephyr Project, etc.
+	2.2 Programming Environment and Tools
+	The Teensy 4.1 can be programmed using the Zephyr Project. The Zephyr Project is a scalable, real-time operating system (RTOS) supporting multiple hardware architectures, optimized for resource-constrained devices, and built with security in mind. It includes a variety of programming tools and libraries, making it suitable for developing applications on the Teensy 4.1.
+
+3. RFID Transceiver
+	3.1 Texas Instruments CC2500 Specifications
+		Frequency Range: 2400-2483.5 MHz
+		Modulation: 2-FSK, GFSK, MSK, OOK
+		Data Rate: Up to 500 kbps
+		Sensitivity: -104 dBm
+		Output Power: -30 dBm to +1 dBm
+		Interface: SPI
+
+	3.2 Programming and Configuration (continued)
+		The CC2500 can be programmed and configured using the SPI interface connected to the Teensy 4.1. The Teensy 4.1 will be responsible for sending configuration data and commands to the CC2500, as well as receiving data from the transceiver. The CC2500 datasheet provides detailed information on register settings and configuration options for optimal performance.
+
+4. Antenna
+	4.1 Antenna Specifications
+		Frequency Range: 2400-2483.5 MHz (2.4 GHz)
+		Impedance: 50 ohms
+		Gain: Dependent on antenna type and requirements
+		Polarization: Linear
+	4.2 Connection to PCB
+		The antenna can be connected to the PCB using a suitable RF connector, such as an SMA or U.FL connector. The PCB should have a matched impedance trace connecting the RF connector to the transceiver and amplifier stages.
+
+5. Power Amplifier
+	5.1 Power Amplifier Specifications
+		Frequency Range: 2400-2483.5 MHz
+		Gain: Dependent on required output power and antenna specifications
+		Output Power: Adjustable based on requirements
+		Input/Output Impedance: 50 ohms
+	5.2 Connection and Layout Considerations
+		The power amplifier should be connected between the CC2500 transceiver and the antenna. Proper impedance matching and RF layout techniques should be used to ensure optimal performance and to minimize losses and reflections.
+
+6. Low Noise Amplifier
+	6.1 Low Noise Amplifier Specifications
+		Frequency Range: 2400-2483.5 MHz
+		Gain: Dependent on required sensitivity and system noise figure
+		Noise Figure: As low as possible, typically < 2 dB
+		Input/Output Impedance: 50 ohms
+	6.2 Connection and Layout Considerations
+		The low noise amplifier should be connected between the antenna and the CC2500 transceiver. Proper impedance matching and RF layout techniques should be used to ensure optimal performance and to minimize losses and reflections.
+
+7. Power Supply
+	7.1 Input Voltage and Connector
+		Input Voltage Range: 12V DC
+		Connector Type: Barrel connector or other suitable connector
+	7.2 Voltage Regulator
+		Output Voltage: 3.3V or 5V (depending on microcontroller and other component requirements)
+		Current Rating: Sufficient to power all components in the system
+
+8. USB Interface
+	8.1 USB Connector and Specifications
+		Connector Type: Micro-USB or USB-C
+		USB Standard: USB 2.0 or higher
+		Functionality: Data transfer and firmware updates
+	8.2 Firmware Updates and Communication
+		The USB interface can be used for firmware updates, configuration, and communication with external devices or software applications. The Teensy 4.1 has built-in USB support, making it easy to implement this functionality.
+
+9. Programming Headers
+	9.1 Header Pin Specifications
+		Pin Count: Dependent on programming interface requirements
+		Pitch: 2.54mm or other suitable pitch for easy connection
+	9.2 In-Circuit Programming and Debugging
+		Programming headers should be provided on the PCB for in-circuit programming and debugging of the Teensy 4.1. This can be done using a standard programming interface, such as JTAG or SWD, depending on the microcontroller's capabilities.
+
+10. PCB Layout and Design Considerations
+	10.1 Component Placement
+		Components should be placed in a logical and efficient manner, with consideration given to signal routing, power distribution, and thermal management.
+
+	10.2 Signal Routing and Trace Widths (continued)
+		Signal routing should be optimized for minimal crosstalk, signal integrity, and electromagnetic interference (EMI). Trace widths should be chosen based on current carrying capacity and controlled impedance requirements for high-speed signals and RF traces.
+
+	10.3 Ground Planes and Power Distribution
+		A solid ground plane should be used throughout the PCB to provide a stable reference and minimize noise. Power distribution should be carefully planned to minimize voltage drops and ensure stable power for all components.
+
+	10.4 Antenna Impedance Matching and RF Considerations
+		The antenna impedance should be matched to the system impedance (typically 50 ohms) to minimize reflections and maximize power transfer. RF layout techniques, such as proper grounding, via shielding, and controlled impedance traces, should be used to ensure optimal performance and minimize interference.
+
+11. Bill of Materials (BOM)
+	11.1 Components List
+		Microcontroller: Teensy 4.1
+		RFID Transceiver: Texas Instruments CC2500
+		Power Amplifier: Select based on required output power and gain
+		Low Noise Amplifier: Select based on required sensitivity and noise figure
+		Antenna: Select based on required frequency range, gain, and polarization
+		RF Connector: SMA or U.FL, depending on antenna connection
+		Voltage Regulator: Select based on input voltage range and output voltage/current requirements
+		USB Connector: Micro-USB or USB-C
+		Programming Headers: Select based on programming interface requirements (e.g., JTAG or SWD)
+		Passive Components: Resistors, capacitors, inductors, etc., as required for the design
+		11.2 Part Numbers and Quantities
+	
+	The specific part numbers and quantities will depend on the final design and component selection. This information should be included in the BOM provided by the PCB designer.
+
+12. Schematic
+	12.1 Circuit Diagram
+		A detailed schematic should be created to show the connections between all components, including power supply, microcontroller, transceiver, amplifiers, antenna, and any additional circuitry required for the design.
+	12.2 Connections Between Components
+		The schematic should clearly indicate the connections between components, including signal names, pin numbers, and any additional information needed to understand the design.
+
+13. Gerber Files
+	13.1 File Types and Descriptions
+		Gerber files are the standard file format used for manufacturing PCBs. These files should include all necessary layers, such as copper layers, solder mask, silkscreen, and drill files.
+	13.2 PCB Fabrication Requirements
+		The PCB fabrication requirements, such as material type, board thickness, copper weight, and surface finish, should be specified when ordering the PCB. This information is typically included in the Gerber files or provided separately as a fabrication note.
